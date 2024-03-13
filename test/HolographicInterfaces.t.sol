@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import {Test} from "forge-std/Test.sol";
-import { HolographInterfaces } from "src/HolographInterfaces.sol";
+import {HolographInterfaces} from "src/HolographInterfaces.sol";
 
 contract HolographicInterfacesTest is Test {
     HolographInterfaces public holographInterfaces;
@@ -11,7 +11,7 @@ contract HolographicInterfacesTest is Test {
         holographInterfaces = new HolographInterfaces();
     }
 
-    function test_CounterDeployedCodeIsEqualToOnChainCode() public view {
+    function test_HolographInterfacesDeployedCodeIsEqualToOnChainCode() public view {
         // get the deployed contract bytecode
         bytes memory bytecode = vm.getDeployedCode("HolographInterfaces.sol:HolographInterfaces");
         assertEq(address(holographInterfaces).code, bytecode);
